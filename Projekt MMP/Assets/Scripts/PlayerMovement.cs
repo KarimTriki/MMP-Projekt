@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float sprintSpeed;
+    [SerializeField] private float crouchSpeed;
     [SerializeField] private float jumpPower;
     private Rigidbody2D body;
     private Animator anim;
@@ -18,10 +19,16 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-
+    
     private void Update(){
         float horInput = Input.GetAxisRaw("Horizontal");
+        float speed = crouchSpeed;
+        if (!crouched) {
+            speed = sprintSpeed;
+        }
+        
         body.velocity = new Vector2 ( horInput * speed, body.velocity.y);
+
     
         if(Input.GetKey(KeyCode.Space) && onTheGround && !crouched) {
             Jump();
@@ -30,12 +37,12 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C) && onTheGround) {
             anim.SetBool("Crouch",true);
             crouched = true;
-            speed = speed/5;
+            speed = crouchSpeed;
         }
         else if(Input.GetKeyUp(KeyCode.C) && onTheGround) {
             anim.SetBool("Crouch",false);
             crouched = false;
-            speed = speed * 5;
+            speed = sprintSpeed; 
         }
         
         if (horInput > 0.01f) {
@@ -57,6 +64,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.tag == "Ground"){
+            onTheGround = true;
+        }
+        if (collision.gameObject.tag == "EnemyOrLift"){
             onTheGround = true;
         }
 

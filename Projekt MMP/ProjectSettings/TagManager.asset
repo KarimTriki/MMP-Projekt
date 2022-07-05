@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Coin
+  - Life
+  - Enemy
+  - EnemyOrLift
   layers:
   - Default
   - TransparentFX
@@ -47,6 +51,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1730228755
+    locked: 0
+  - name: WorldObjects
+    uniqueID: 3494483141
     locked: 0
   - name: Player
     uniqueID: 1183626953
