@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour
 
     private float limitXAxis = -7;
     private float limitYAxis = -1;
+    private float limitYAxisUp = 4;
 
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class CameraMovement : MonoBehaviour
     }
 
     void FollowTarget() {
-        if (target.position.x > -7 && target.position.y > -1) {
+        if (target.position.x > limitXAxis && target.position.y > limitYAxis && target.position.y < limitYAxisUp) {
             Vector3 targetPosition = target.position + zAxisOffset;
             Vector3 smoothTransitionPosition = Vector3.Lerp(transform.position, targetPosition, lerpFactor*Time.fixedDeltaTime);
             transform.position = smoothTransitionPosition;
@@ -29,6 +30,13 @@ public class CameraMovement : MonoBehaviour
             Vector3 smoothTransitionPosition = Vector3.Lerp(transform.position, endXYAxisPosition, lerpFactor*Time.fixedDeltaTime);
             transform.position =  smoothTransitionPosition;
         }
+
+        else if (target.position.x < limitXAxis && target.position.y > limitYAxisUp){
+            Vector3 endXYAxisPosition = new Vector3(limitXAxis, limitYAxisUp, target.position.z) + zAxisOffset;
+            Vector3 smoothTransitionPosition = Vector3.Lerp(transform.position, endXYAxisPosition, lerpFactor*Time.fixedDeltaTime);
+            transform.position =  smoothTransitionPosition;
+        }
+
         else if (target.position.x < limitXAxis){
             Vector3 endXAxisPosition = new Vector3(limitXAxis, target.position.y, target.position.z) + zAxisOffset;
             Vector3 smoothTransitionPosition = Vector3.Lerp(transform.position, endXAxisPosition, lerpFactor*Time.fixedDeltaTime);
@@ -36,6 +44,12 @@ public class CameraMovement : MonoBehaviour
         }
         else if (target.position.y < limitYAxis){
             Vector3 endYAxisPosition = new Vector3(target.position.x, limitYAxis, target.position.z) + zAxisOffset;
+            Vector3 smoothTransitionPosition = Vector3.Lerp(transform.position, endYAxisPosition, lerpFactor*Time.fixedDeltaTime);
+            transform.position =  smoothTransitionPosition;
+        }
+
+        else if (target.position.y > limitYAxisUp){
+            Vector3 endYAxisPosition = new Vector3(target.position.x, limitYAxisUp, target.position.z) + zAxisOffset;
             Vector3 smoothTransitionPosition = Vector3.Lerp(transform.position, endYAxisPosition, lerpFactor*Time.fixedDeltaTime);
             transform.position =  smoothTransitionPosition;
         }
