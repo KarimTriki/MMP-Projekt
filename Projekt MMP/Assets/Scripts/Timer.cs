@@ -5,29 +5,24 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float timeValue;
+    public static float timeValue;
     [SerializeField] private Text timerTime;
 
     // Update is called once per frame
+
+    void Start() {
+        timeValue = 0;
+    }
     void Update()
     {
-        if (timeValue > 0){
-            timeValue -= Time.deltaTime;
-        }
+        timeValue += Time.deltaTime;
         //else {
             //Death Animation
         //}
 
-        DisplayTime(timeValue);
-    }
-
-    void DisplayTime(float time) {
-        if (time < 0) {
-            time = 0;
-        }
-
-        float minutes = Mathf.FloorToInt(time / 60);
-        float seconds = Mathf.FloorToInt(time % 60);
+        float minutes = Mathf.FloorToInt(timeValue / 60);
+        float seconds = Mathf.FloorToInt(timeValue % 60);
         timerTime.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
 }

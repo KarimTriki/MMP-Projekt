@@ -7,47 +7,99 @@ using UnityEngine.SceneManagement;
 public class Interactables : MonoBehaviour
 {
     [SerializeField] private float maxCoins;
-    [SerializeField] private float lives;
-    private float coins = 0;
+    public static float lives = 5;
+    public static bool died = false;
+    private float coins;
+    public static float currentLevel;
     [SerializeField] private Text textCoins;
     [SerializeField] private Text textLives;
 
+    [SerializeField] private GameObject coinsPanel;
+
+    [SerializeField] private Text coinsRemaining;
+    private float panelTimer = 3f;
+    private float panelCooldownTimer;
+
+    [SerializeField] AudioSource collectCoinSound;
+    [SerializeField] AudioSource collectLifeSound;
+
+    [SerializeField] AudioSource dieSound;
+    [SerializeField] AudioSource finishSound;
+
     void Start() {
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        coins = 0;
         textCoins.text = coins.ToString()+'/'+maxCoins.ToString();
         textLives.text = lives.ToString();
+        panelCooldownTimer = panelTimer;
     }
 
+    void Update() {
+        if (coinsPanel.activeSelf) {
+            panelCooldownTimer -= Time.deltaTime;
+            if (panelCooldownTimer > 0) {
+                return;
+            }
+        }
+        coinsPanel.SetActive(false);
+        panelCooldownTimer = panelTimer;
+    }
     private void OnTriggerEnter2D(Collider2D collectable) {
         if(collectable.transform.tag == "Coin"){
             coins++;
             Destroy(collectable.gameObject);
             textCoins.text = coins.ToString()+'/'+maxCoins.ToString();
+            if (VolumeManager.isOn) {
+                collectCoinSound.Play();
+            }
         }
         if(collectable.transform.tag == "Life"){
             lives++;
             Destroy(collectable.gameObject);
             textLives.text = lives.ToString();
+            if (VolumeManager.isOn) {
+                collectLifeSound.Play();
+            }
         }
         if(collectable.transform.tag == "Enemy"){
             lives--;
             textLives.text = lives.ToString();
             if (lives > 0) {
                 this.transform.position = new Vector3(-12.25f,-3.25f,0);
+                if (VolumeManager.isOn) {
+                    dieSound.Play();
+                }
+                died = true;
             } 
             else if (lives <= 0) {
                 SceneManager.LoadScene("GameOverMenu");
             }
         }
-        if(collectable.transform.tag == "EnemyOrLift" && collectable.transform.position.y > this.transform.position.y){
+        if(collectable.transform.tag == "EnemyOrLift"){
             lives--;
             textLives.text = lives.ToString();
             if (lives > 0) {
                 this.transform.position = new Vector3(-12.25f,-3.25f,0);
+                if (VolumeManager.isOn) {
+                    dieSound.Play();
+                }
+                died = true;
             } 
             else if (lives <= 0) {
                 SceneManager.LoadScene("GameOverMenu");
             }
         }
+        if(collectable.transform.tag == "Finish"){
+            if (coins == maxCoins) {
+                SceneManager.LoadScene("WinMenu");
+            }
+            else {
+                coinsRemaining.text = "You Need To Collect The Remaining "+ (maxCoins - coins).ToString() + " Coin(s)";
+                coinsPanel.SetActive(true);
+
+            }
+        }
+
     }
     
 }

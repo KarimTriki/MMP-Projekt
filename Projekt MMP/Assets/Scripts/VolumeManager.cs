@@ -8,7 +8,7 @@ public class VolumeManager : MonoBehaviour
     private Sprite soundOnImage;
     public Sprite soundOffImage;
     public Button button;
-    private bool isOn = true;
+    public static bool isOn = true;
 
     public AudioSource audioSource;
     // Start is called before the first frame update
