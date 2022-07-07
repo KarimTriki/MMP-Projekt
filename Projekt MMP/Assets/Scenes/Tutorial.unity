@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 491014}
   - component: {fileID: 491013}
   - component: {fileID: 491012}
-  - component: {fileID: 491016}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -236,19 +235,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &491016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ed4de3512308b42ac5713406f8de8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
 --- !u!1 &15664778
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +563,7 @@ Transform:
   - {fileID: 930010871}
   - {fileID: 2127099993}
   - {fileID: 846344110}
+  - {fileID: 1310276078}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1210,7 +1197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: 4}
+  m_AnchoredPosition: {x: 30, y: 4.5}
   m_SizeDelta: {x: 211.9122, y: 50.277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410194291
@@ -1233,10 +1220,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pay attention to the number of lives you have at the top right corner.
-    If you die, you will be respawned to the starting position and you'll lose a
-    life (Except in the tutorial; you're immortal). If you run out of lives, it's
-    GAME OVER. Here's a life you can collect
+  m_text: "Pay attention to the number of lives you have at the top right corner.
+    \n\nIf you die, you will be respawned to the starting position and you'll lose
+    a life (Except in the tutorial; you're immortal). \n\nIf you run out of lives,
+    it's GAME OVER.\n\n Here's a life you can collect"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1299,7 +1286,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 72.40001, y: 29.905617, z: 135.41202, w: 18.109385}
+  m_margin: {x: 71.45836, y: 29.905617, z: 134.87393, w: 18.109385}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -14163,6 +14150,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
   m_PrefabInstance: {fileID: 846344109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &862658250
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 182192279}
+    m_Modifications:
+    - target: {fileID: 535872428583205970, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_Name
+      value: Coin (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 133.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.204653
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
 --- !u!1001 &930010870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15105,9 +15149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pMov: {fileID: 1300590740}
-  maxCoins: 10
   textCoins: {fileID: 1838787537}
   textLives: {fileID: 1517142294}
+  textLevel: {fileID: 1461063135}
   coinsPanel: {fileID: 400875877}
   coinsRemaining: {fileID: 1432930531}
   collectCoinSound: {fileID: 1300590748}
@@ -15690,6 +15734,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1310276078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
+  m_PrefabInstance: {fileID: 862658250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1351477551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 535872428583205971, guid: 15a7d581e427df741bbebe4678b7c90f, type: 3}
@@ -16015,8 +16064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72, y: -25}
-  m_SizeDelta: {x: 120, y: 30}
+  m_AnchoredPosition: {x: 72.5, y: -25}
+  m_SizeDelta: {x: 135, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461063135
 MonoBehaviour:
@@ -21503,8 +21552,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -87, y: -70}
-  m_SizeDelta: {x: 90, y: 30}
+  m_AnchoredPosition: {x: -50, y: -70}
+  m_SizeDelta: {x: 90, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1517142294
 MonoBehaviour:
@@ -21533,7 +21582,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 8
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -21744,8 +21793,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1300590739}
-  zAxisOffset: {x: 0, y: 0, z: -10}
   lerpFactor: 4
+  limitXAxis: -7
+  limitYAxisDown: -1
+  limitYAxisUp: 4
 --- !u!114 &1528079691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21896,7 +21947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -62, y: -22}
+  m_AnchoredPosition: {x: -50, y: -25}
   m_SizeDelta: {x: 90, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590374471
@@ -21922,11 +21973,11 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 27
-    m_FontStyle: 1
+    m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 8
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -34090,8 +34141,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 67, y: -70}
-  m_SizeDelta: {x: 90, y: 30}
+  m_AnchoredPosition: {x: 94, y: -70}
+  m_SizeDelta: {x: 90, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838787537
 MonoBehaviour:
@@ -34120,7 +34171,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 8
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -34919,7 +34970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.14, y: 4}
+  m_AnchoredPosition: {x: -10.14, y: 4.5}
   m_SizeDelta: {x: 211.9122, y: 50.277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2053947078
@@ -34943,8 +34994,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Ninja Platformer is a basic platformer game. \nThe goal is to reach the
-    finish line while also collecting all the coins in the level. \nMove with A and
-    D or the left and right arrow keys and collect your first coin\n\n\n\nESCAPE
+    finish line while also collecting all the coins in the level. \n\n\nMove with
+    A and D or the left and right arrow keys and collect your first coin.\n\n\n\nESCAPE
     to exit the Tutorial"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
