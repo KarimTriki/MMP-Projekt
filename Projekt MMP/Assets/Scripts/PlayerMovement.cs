@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float crouchSpeed;
     [SerializeField] private float jumpPower;
     [SerializeField] AudioSource jumpSound;
+
+    [SerializeField] AudioSource trampolineSound;
     [SerializeField] private float respawnTimer;
     private float cooldownRespawnTimer;
     
@@ -82,6 +84,15 @@ public class PlayerMovement : MonoBehaviour
         onTheGround = false;
         if (VolumeManager.isOn) {
             jumpSound.Play();
+        }
+    }
+
+    public void Trampolining() {
+        body.velocity = new Vector2(body.velocity.x, jumpPower*1.5f);
+        anim.SetTrigger("Jump");
+        onTheGround = false;
+        if (VolumeManager.isOn) {
+            trampolineSound.Play();
         }
     }
 

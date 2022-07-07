@@ -8451,6 +8451,7 @@ MonoBehaviour:
   crouchSpeed: 1
   jumpPower: 13
   jumpSound: {fileID: 1300590745}
+  trampolineSound: {fileID: 0}
   respawnTimer: 1
 --- !u!61 &1300590741
 BoxCollider2D:
@@ -8510,6 +8511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3233c75b1339c74796ad6857cf51feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pMov: {fileID: 0}
   maxCoins: 3
   textCoins: {fileID: 1838787537}
   textLives: {fileID: 1564994042}
@@ -13604,7 +13606,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b6891bf38a3df44b29d9271a7acfea03, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.51
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0

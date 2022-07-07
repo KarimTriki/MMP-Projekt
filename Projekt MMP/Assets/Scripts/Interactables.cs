@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Interactables : MonoBehaviour
 {
+    public PlayerMovement pMov;
     [SerializeField] private float maxCoins;
     public static float lives = 5;
     public static bool died = false;
@@ -43,6 +44,10 @@ public class Interactables : MonoBehaviour
         }
         coinsPanel.SetActive(false);
         panelCooldownTimer = panelTimer;
+
+        if(Input.GetKey(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Tutorial") {
+            SceneManager.LoadScene("StartMenu");
+        }
     }
     private void OnTriggerEnter2D(Collider2D collectable) {
         if(collectable.transform.tag == "Coin"){
@@ -54,7 +59,9 @@ public class Interactables : MonoBehaviour
             }
         }
         if(collectable.transform.tag == "Life"){
-            lives++;
+            if (SceneManager.GetActiveScene().name != "Tutorial"){
+                    lives++;
+            }
             Destroy(collectable.gameObject);
             textLives.text = lives.ToString();
             if (VolumeManager.isOn) {
@@ -62,7 +69,10 @@ public class Interactables : MonoBehaviour
             }
         }
         if(collectable.transform.tag == "Enemy"){
-            lives--;
+            if (SceneManager.GetActiveScene().name != "Tutorial"){
+                    lives--;
+            }
+            
             textLives.text = lives.ToString();
             if (lives > 0) {
                 this.transform.position = new Vector3(-12.25f,-3.25f,0);
@@ -76,7 +86,9 @@ public class Interactables : MonoBehaviour
             }
         }
         if(collectable.transform.tag == "EnemyOrLift"){
-            lives--;
+            if (SceneManager.GetActiveScene().name != "Tutorial"){
+                    lives--;
+            }
             textLives.text = lives.ToString();
             if (lives > 0) {
                 this.transform.position = new Vector3(-12.25f,-3.25f,0);
@@ -91,13 +103,21 @@ public class Interactables : MonoBehaviour
         }
         if(collectable.transform.tag == "Finish"){
             if (coins == maxCoins) {
-                SceneManager.LoadScene("WinMenu");
+                if (SceneManager.GetActiveScene().name == "Tutorial"){
+                    SceneManager.LoadScene("StartMenu");
+                }
+                else {
+                    SceneManager.LoadScene("WinMenu");
+                }
             }
             else {
                 coinsRemaining.text = "You Need To Collect The Remaining "+ (maxCoins - coins).ToString() + " Coin(s)";
                 coinsPanel.SetActive(true);
 
             }
+        }
+        if(collectable.transform.tag == "Trampoline"){
+            pMov.Trampolining();
         }
 
     }

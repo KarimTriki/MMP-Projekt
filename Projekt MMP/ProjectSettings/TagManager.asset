@@ -9,6 +9,8 @@ TagManager:
   - Life
   - Enemy
   - EnemyOrLift
+  - Trampoline
+  - Walls
   layers:
   - Default
   - TransparentFX

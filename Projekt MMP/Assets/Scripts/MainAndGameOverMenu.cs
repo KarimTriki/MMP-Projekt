@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainAndGameOverMenu : MonoBehaviour
 {
     public void PlayGame() {
         SceneManager.LoadScene("Level1");
-        Interactables.currentLevel = 1;
     }
 
     public void QuitGame() {
@@ -16,5 +15,9 @@ public class MainMenu : MonoBehaviour
 
     public void ToStartMenu() {
         SceneManager.LoadScene("StartMenu");
+    }
+
+    public void PlayTutorial() {
+        SceneManager.LoadScene("Tutorial");
     }
 }

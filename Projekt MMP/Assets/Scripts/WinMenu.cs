@@ -33,6 +33,7 @@ public class WinMenu : MonoBehaviour
     }
 
     public void ReplayLevel() {
+        totalTime -= Timer.timeValue;
         SceneManager.LoadScene("Level"+(Interactables.currentLevel).ToString());
     }
 
