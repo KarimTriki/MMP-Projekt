@@ -103,7 +103,7 @@ public class Interactables : MonoBehaviour
         }
 
         //Colliding with enemies
-        if(obj.transform.tag == "Enemy" || obj.transform.tag == "EnemyOrLift"){
+        if(obj.transform.tag == "Enemy" || obj.transform.tag == "Walls"){
             if (SceneManager.GetActiveScene().name != "Tutorial"){
                     lives--;
             }

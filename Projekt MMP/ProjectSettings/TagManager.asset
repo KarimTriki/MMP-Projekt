@@ -8,9 +8,9 @@ TagManager:
   - Coin
   - Life
   - Enemy
-  - EnemyOrLift
   - Trampoline
   - Walls
+  - EnemyOrLift
   layers:
   - Default
   - TransparentFX

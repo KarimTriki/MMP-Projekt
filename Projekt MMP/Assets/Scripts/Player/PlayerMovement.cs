@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float horInput = Input.GetAxisRaw("Horizontal");
-        anim.SetBool("Run",horInput != 0);
+        anim.SetBool("Run",horInput != 0 && !PauseMenu.paused);
         anim.SetBool("OnTheGround",onTheGround);
 
         //If the player dies, make him unable to move for (respawnTimer) seconds
@@ -94,10 +94,10 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Flip the player to the direction of the movement
-        if (horInput > 0) {
+        if (horInput > 0 && !PauseMenu.paused) {
             transform.localScale = new Vector3(playerScale,playerScale,1);
         }
-        else if (horInput < 0) {
+        else if (horInput < 0 && !PauseMenu.paused) {
             transform.localScale = new Vector3(-playerScale,playerScale,1);
         }
 
@@ -125,13 +125,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
         //The player is on the ground if he touches an object with certain tags
-        if (collision.gameObject.tag == "Ground"){
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy"){
             onTheGround = true;
         }
-        if (collision.gameObject.tag == "EnemyOrLift"){
-            onTheGround = true;
-        }
+    }
 
+    private void OnCollisionExit2D(Collision2D collision){
+        //The player is not on the ground if he no longer touches an object with certain tags
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy"){
+            onTheGround = false;
+        }
     }
     
 }
