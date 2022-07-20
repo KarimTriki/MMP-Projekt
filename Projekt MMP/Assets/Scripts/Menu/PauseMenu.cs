@@ -44,6 +44,7 @@ public class PauseMenu : MonoBehaviour
     //Set time back to normal and load Start Menu
     public void ToStartMenu() {
         Time.timeScale = 1f;
+        paused = false;
         SceneManager.LoadScene("StartMenu");
     }
 }
