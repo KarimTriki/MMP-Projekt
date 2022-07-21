@@ -10,7 +10,7 @@ public class WaypointFollower : MonoBehaviour
     private int currentIndex = 0;
     [SerializeField] private float speed = 2f;
 
-    [Header("Ick for Translation, Untick for Rotation")]
+    [Header("Tick for Translation, Untick for Rotation")]
     [SerializeField] private bool translation = true;
 
     void Start() {
