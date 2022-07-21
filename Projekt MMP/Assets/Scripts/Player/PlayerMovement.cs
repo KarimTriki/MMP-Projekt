@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private bool crouched = false;
 
     //playerScale uses the same sprite scaling ingame to to not mess up the scaling after flipping the player
-    private float playerScale = 0.4f;
+    public static float playerScale = 0.4f;
 
     void Start()
     {
