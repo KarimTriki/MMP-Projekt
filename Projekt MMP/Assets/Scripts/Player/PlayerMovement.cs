@@ -86,8 +86,8 @@ public class PlayerMovement : MonoBehaviour
             speed = crouchSpeed;
         }
 
-        //stand up if the player releases the key and is on the ground
-        else if(Input.GetKeyUp(KeyCode.C) && onTheGround) {
+        //stand up if the player releases the key
+        else if(Input.GetKeyUp(KeyCode.C)) {
             anim.SetBool("Crouch",false);
             crouched = false;
             speed = sprintSpeed; 
