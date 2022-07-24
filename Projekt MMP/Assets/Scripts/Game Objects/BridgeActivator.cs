@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BridgeActivator : MonoBehaviour
-{
+{   
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite bridgeActivated;
     [SerializeField] private GameObject bridgeOff;
@@ -14,6 +14,8 @@ public class BridgeActivator : MonoBehaviour
     void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    //The trigger turns red, before changing sprite
     void OnTriggerEnter2D (Collider2D obj) {
         if ((obj.gameObject.tag == "Player") && (!bridge)) {
             spriteRenderer.color = new Color(255,0,0,255);
@@ -21,6 +23,7 @@ public class BridgeActivator : MonoBehaviour
         }
     }
 
+    //The trigger goes back to white, activate the BridgeOn game object and deactivate the BridgeOff
     void ActivateBridge() {
         spriteRenderer.color = new Color(255,255,255,255);
         spriteRenderer.sprite = bridgeActivated;

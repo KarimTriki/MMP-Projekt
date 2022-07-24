@@ -125,14 +125,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
         //The player is on the ground if he touches an object with certain tags
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "FallingPlatform"){
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy"){
             onTheGround = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision){
         //The player is not on the ground if he no longer touches an object with certain tags
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "FallingPlatform"){
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Enemy"){
             onTheGround = false;
         }
     }

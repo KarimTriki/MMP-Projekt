@@ -11,7 +11,7 @@ public class Interactables : MonoBehaviour
     public static bool died = false;
 
     //Player lives at the start of the game
-    private float resetLives = 5;
+    private float resetLives = 10;
 
     //current player lives
     public static float lives;
